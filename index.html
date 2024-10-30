@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .accordion-container {
+            margin-bottom: 5px; /* Space between accordion items */
+        }
+
+        .accordion {
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        /* Apply alternating background colors to the container */
+        .accordion-container:nth-child(odd) .accordion {
+            background-color: #f2f2f2; /* Light gray for odd rows */
+        }
+
+        .accordion-container:nth-child(even) .accordion {
+            background-color: #e0e0e0; /* Slightly darker gray for even rows */
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc; /* Darker gray on active/hover */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Questions and Answers</h2>
+<p>Click on the questions to reveal the answers.</p>
+
+<div class="accordion-container">
+    <button class="accordion">1) Mis on vanaisa pruunis kastis?</button>
+    <div class="panel">
+        <p>Kastis on vanad fotod, raamatud, ajalehed ja vanad kirjad.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">2) Kelle kiri oli pruunis kastis?</button>
+    <div class="panel">
+        <p>Martale: kiri oli adresseeritud Martale.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">3) Kui vana see kiri oli?</button>
+    <div class="panel">
+        <p>See kiri oli 81 aastat vana (kuna kiri oli kirjutatud 12. juunil 1943 ja praegu on 2024. aasta).</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">4) Kes on Johanna?</button>
+    <div class="panel">
+        <p>Johanna on kirja kirjutaja tädi, kelle juures ta viibib Tallinnas.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">5) Kes on Juhan Liiv?</button>
+    <div class="panel">
+        <p>Juhan Liiv oli Eesti luuletaja.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">6) Millal on Marta sünnipäev?</button>
+    <div class="panel">
+        <p>Marta sünnipäev on 17. juunil.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">7) Mis on Mardi koera nimi?</button>
+    <div class="panel">
+        <p>Mardi koera nimi on Muril.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">8) Mis oli Tallinna kõige parem restoran aastal 1943?</button>
+    <div class="panel">
+        <p>Tallinna kõige parem restoran aastal 1943 oli „Kuld Lõvi.”</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">9) Mida tähendab peigmees?</button>
+    <div class="panel">
+        <p>Peigmees on naise armuke ehk kallike, tema tulevane abikaasa. Praegu ütlevad eestlased: poiss-sõber.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">10) Kes on Ruudi?</button>
+    <div class="panel">
+        <p>Ruudi on tädi Johanna peigmees, kes töötab kokana restoranis „Kuld Lõvi.”</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">11) Kus Ruudi elab?</button>
+    <div class="panel">
+        <p>Ruudi elab Nõmmel, Tallinnas.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">12) Kas Ruudil on lemmikloom?</button>
+    <div class="panel">
+        <p>Jah, Ruudil on kaks kassi ja koer.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">13) Kes on Liidia?</button>
+    <div class="panel">
+        <p>Liidia on Ruudi õde, kes õpetab Martale prantsuse keelt.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">14) Mis sööki Ruudi oskab hästi teha?</button>
+    <div class="panel">
+        <p>Ruudi oskab hästi teha rosoljet ja kartulisalatit.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">15) Mis keelt Marta õpib?</button>
+    <div class="panel">
+        <p>Marta õpib prantsuse keelt.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">16) Missugune kutsikas Martale meeldib?</button>
+    <div class="panel">
+        <p>Martale meeldib must kutsikas, kellel on valge saba ja kes on kõige väiksem.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">17) Mis aastal Marguse vanaisa on sündinud?</button>
+    <div class="panel">
+        <p>Marguse vanaisa on sündinud 1933. aastal.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">18) Kes on Vaike?</button>
+    <div class="panel">
+        <p>Vaike on Marguse vanaema, kes on surnud.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">19) Mis on Marguse naabri nimi?</button>
+    <div class="panel">
+        <p>Marguse naabri nimi on Merike.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">20) Mida Marguse naaber teeb, kui Margus talle helistab?</button>
+    <div class="panel">
+        <p>Kui Margus Merikele helistab, siis Merike kindlasti aitab tal selgitada, kes on Marta ja võib-olla jagab ka rohkem teavet tema kohta.</p>
+    </div>
+</div>
+
+<div class="accordion-container">
+    <button class="accordion">21) Kus Marta praegu elab?</button>
+    <div class="panel">
+        <p>Marta praegu elab Tartus.</p>
+    </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
