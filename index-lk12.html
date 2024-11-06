@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .accordion-container {
+            margin-bottom: 5px; /* Space between accordion items */
+        }
+
+        .accordion {
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        /* Apply alternating background colors to the container */
+        .accordion-container:nth-child(odd) .accordion {
+            background-color: #f2f2f2; /* Light gray for odd rows */
+        }
+
+        .accordion-container:nth-child(even) .accordion {
+            background-color: #e0e0e0; /* Slightly darker gray for even rows */
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc; /* Darker gray on active/hover */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Questions and Answers Page 12</h2>
+<p>Click on the questions to reveal the answers.</p>
+<div id="accordionContainer"></div>
+<script>
+  const questions = [
+    {
+      est: "Mis komponendid on õunamoosis?",
+      rus: "Какие ингредиенты в яблочном варенье?",
+      answer: "Õunamoosis on pool klaasi vett, 2 kilo õunu ja 1 kilo suhkrut.",
+      answerRus: "В яблочном варенье полстакана воды, 2 килограмма яблок и 1 килограмм сахара."
+    },
+    {
+      est: "Mida Margus hommikul sööb?",
+      rus: "Что Маргус ест по утрам?",
+      answer: "Margus sööb hommikul kaerahelbeputru õunamoosiga, aga vahel sööb ka võileiba.",
+      answerRus: "Маргус по утрам ест овсяную кашу с яблочным вареньем, а иногда ест бутерброды."
+    },
+    {
+      est: "Kus elab Marta? Mis linnas ja mis tänaval?",
+      rus: "Где живет Марта? В каком городе и на какой улице?",
+      answer: "Marta elab Tartus, Tigi tänaval 23, korteris 38.",
+      answerRus: "Марта живет в Тарту, на улице Тиги 23, в квартире 38."
+    },
+    {
+      est: "Mis on Marta amet?",
+      rus: "Какая профессия у Марты?",
+      answer: "Marta oli Tartu Ülikoolis bioloog, aga nüüd on ta pensionil.",
+      answerRus: "Марта была биологом в Тартуском университете, а теперь она на пенсии."
+    },
+    {
+      est: "Millal Merike teeb õunamoosi?",
+      rus: "Когда Мерике делает яблочное варенье?",
+      answer: "Merike teeb õunamoosi ülehomme, kui tal on vaba päev.",
+      answerRus: "Мерике сделает яблочное варенье послезавтра, когда у нее будет выходной."
+    }
+  ];
+
+  const container = document.getElementById('accordionContainer');
+
+  questions.forEach((item, index) => {
+    const accordionContainer = document.createElement('div');
+    accordionContainer.classList.add('accordion-container');
+
+    const questionBtn = document.createElement('button');
+    questionBtn.classList.add('accordion');
+    questionBtn.textContent = `${index + 1}) ${item.est}`;
+
+    const panel = document.createElement('div');
+    panel.classList.add('panel');
+
+    const translationP = document.createElement('p');
+    translationP.classList.add('translation');
+    translationP.textContent = item.rus;
+
+
+    const answerP = document.createElement('p');
+    answerP.classList.add('answer');
+    answerP.textContent = item.answer;
+
+    const answerRus = document.createElement('p');
+    answerRus.classList.add('answerRus');
+    answerRus.textContent = item.answerRus;
+
+    panel.appendChild(translationP);
+    panel.appendChild(answerP);
+    panel.appendChild(answerRus);
+
+    accordionContainer.appendChild(questionBtn);
+    accordionContainer.appendChild(panel);
+
+    container.appendChild(accordionContainer);
+
+    // Toggle answer panel
+    questionBtn.addEventListener("click", function () {
+      this.classList.toggle("active");
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+</script>
+
+
+</body>
+</html>

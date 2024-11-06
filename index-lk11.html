@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .accordion-container {
+            margin-bottom: 5px; /* Space between accordion items */
+        }
+
+        .accordion {
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        /* Apply alternating background colors to the container */
+        .accordion-container:nth-child(odd) .accordion {
+            background-color: #f2f2f2; /* Light gray for odd rows */
+        }
+
+        .accordion-container:nth-child(even) .accordion {
+            background-color: #e0e0e0; /* Slightly darker gray for even rows */
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc; /* Darker gray on active/hover */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Questions and Answers Page 11</h2>
+<p>Click on the questions to reveal the answers.</p>
+
+<div id="accordionContainer"></div>
+<script>
+  const questions = [
+    {
+      est: "Miks Margusel on palju pilte seinal?",
+      rus: "Почему у Маргуса много фотографий на стене?",
+      answer: "Margusel on palju pilte seinal, sest tema tädi Anu on kunstnik. Anu kingib talle igal aastal uue pildi.",
+      answerRus: "У Маргус много картин на стене, потому что ее тетя Ану - художница. Каждый год Ану дарит ей новую картину."
+    },
+    {
+      est: "Missugused majad meeldivad Margusele?",
+      rus: "Какие дома нравятся Маргусу?",
+      answer: "Margusele meeldivad vanad majad, nagu Tallinna ja Tartu raekoda, Narva linnus ja Kadrioru loss.",
+      answerRus: "Маргус любит старинные здания, такие как Таллиннская и Тартуская ратуши, Нарвский замок и Кадриоргский дворец."
+    },
+    {
+      est: "Mis mööbel ja asjad on Marguse kodus?",
+      rus: "Какая мебель и вещи есть в доме Маргуса?",
+      answer: "Marguse kodus on vana kirjutuslaud, raamatukapp, pehme diivan ja palju raamatuid.",
+      answerRus: "У Маргуса есть старый письменный стол, книжный шкаф, мягкий диван и много книг."
+    },
+    {
+      est: "Mis on Marguse kassi nimi?",
+      rus: "Как зовут кошку Маргуса?",
+      answer: "Marguse kassi nimi on Miisu.",
+      answerRus: "Кошку Маргуса зовут Мийсу."
+    },
+    {
+      est: "Kus kass on? Vaata pilti!",
+      rus: "Где находится кошка? Посмотрите на картинку!",
+      answer: "Kass on vaibal diivani ees, Marguse kõrval.",
+      answerRus: ""
+    },
+    {
+      est: "Mida kass teeb?",
+      rus: "Что делает кошка?",
+      answer: "Kass mängib oma lemmikmänguasjaga ja hüppab ringi.",
+      answerRus: "Rошка лежит на ковре перед диваном, рядом с Маргусом."
+    },
+    {
+      est: "Mitu inimest elab Kaarupis?",
+      rus: "Сколько людей живет в Каарупе?",
+      answer: "Kaarupis elab sada kakskummend (120) inimest.",
+      answerRus: ""
+    },
+    {
+      est: "Vaata pilti. Mis toas Margus on? Mis mööbel on Marguse toas? Mis on laua peal? Kus on kass?",
+      rus: "Посмотрите на картинку. В какой комнате живет Маргус? Какая мебель стоит в комнате Маргуса? Что стоит на столе? Где находится кошка?",
+      answer: "Margus on elutoas. 2 Toas on valge diivan, telekas kapi peal, sülearvuti ja diivanilaud. 3 Diivanilaua peal on tass ja lill. 4 Kass magab vaibal põrandal.",
+      answerRus: "Маргус находится в гостиной. 2 Здесь есть белый диван, телевизор на шкафу, ноутбук и диванный столик. 3 На диване стоят чашка и цветок. 4 На ковре на полу спит кошка."
+    }
+  ];
+  const container = document.getElementById('accordionContainer');
+
+  questions.forEach((item, index) => {
+    const accordionContainer = document.createElement('div');
+    accordionContainer.classList.add('accordion-container');
+
+    const questionBtn = document.createElement('button');
+    questionBtn.classList.add('accordion');
+    questionBtn.textContent = `${index + 1}) ${item.est}`;
+
+    const panel = document.createElement('div');
+    panel.classList.add('panel');
+
+    const translationP = document.createElement('p');
+    translationP.classList.add('translation');
+    translationP.textContent = item.rus;
+
+
+    const answerP = document.createElement('p');
+    answerP.classList.add('answer');
+    answerP.textContent = item.answer;
+
+    const answerRus = document.createElement('p');
+    answerRus.classList.add('answerRus');
+    answerRus.textContent = item.answerRus;
+
+    panel.appendChild(translationP);
+    panel.appendChild(answerP);
+    panel.appendChild(answerRus);
+
+    accordionContainer.appendChild(questionBtn);
+    accordionContainer.appendChild(panel);
+
+    container.appendChild(accordionContainer);
+
+    // Toggle answer panel
+    questionBtn.addEventListener("click", function () {
+      this.classList.toggle("active");
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+</script>
+
+
+</body>
+</html>
