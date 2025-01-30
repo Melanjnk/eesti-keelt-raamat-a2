@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .accordion-container {
+            margin-bottom: 5px; /* Space between accordion items */
+        }
+
+        .accordion {
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        /* Apply alternating background colors to the container */
+        .accordion-container:nth-child(odd) .accordion {
+            background-color: #f2f2f2; /* Light gray for odd rows */
+        }
+
+        .accordion-container:nth-child(even) .accordion {
+            background-color: #e0e0e0; /* Slightly darker gray for even rows */
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc; /* Darker gray on active/hover */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+<h1>(lk11 - leheküljel 36-37)</h1>
+<span>lehekülg</span>
+<h2>Questions and Answers Page 36 37</h2>
+<p>Click on the questions to reveal the answers.</p>
+
+<div id="accordionContainer"></div>
+<script>
+  const questions = [
+    {
+      "est": "Kas mõisamaja on suur või väike?",
+      "rus": "Мыза большая или маленькая?",
+      "answer": "Mõisamaja on väike.",
+      "answerRus": "Мыза маленькая."
+    },
+    {
+      "est": "Mis on praegu mõisamajas?",
+      "rus": "Что сейчас находится в мызе?",
+      "answer": "Praegu on mõisamajas hotell.",
+      "answerRus": "Сейчас в мызе находится отель."
+    },
+    {
+      "est": "Kes oli maali autor?",
+      "rus": "Кто был автором картины?",
+      "answer": "Maali autor oli Olev Subbi.",
+      "answerRus": "Автор картины — Олев Субби."
+    },
+    {
+      "est": "Mitu inimest oli mõisa hotellis?",
+      "rus": "Сколько человек было в отеле мызы?",
+      "answer": "Mõisa hotellis oli kolm inimest.",
+      "answerRus": "В отеле мызы было три человека."
+    },
+    {
+      "est": "Kuhu Margus ja Liisa-Krõõt helistasid?",
+      "rus": "Куда звонили Маргус и Лийса-Крёот?",
+      "answer": "Nad helistasid Adamson-Ericu muuseumisse.",
+      "answerRus": "Они позвонили в музей Адамсона-Эрика."
+    },
+    {
+      "est": "Mis on tavaliselt Subbi maalidel?",
+      "rus": "Что обычно изображено на картинах Субби?",
+      "answer": "Subbi maalidel on loodus, puud, lilled ja ilusad noored naised.",
+      "answerRus": "На картинах Субби изображены природа, деревья, цветы и красивые молодые женщины."
+    },
+    {
+      "est": "Kes on Lilli Pihlakas?",
+      "rus": "Кто такая Лилли Пихлакас?",
+      "answer": "Lilli Pihlakas on kunstnik.",
+      "answerRus": "Лилли Пихлакас — художница."
+    },
+    {
+      "est": "Kus ta töötab?",
+      "rus": "Где она работает?",
+      "answer": "Ta töötab Kaarupi koolis.",
+      "answerRus": "Она работает в школе Каарупи."
+    },
+    {
+      "est": "Kas Subbi maalid on kallid või odavad?",
+      "rus": "Картины Субби дорогие или дешевые?",
+      "answer": "Subbi maalid on väga kallid.",
+      "answerRus": "Картины Субби очень дорогие."
+    },
+    {
+      "est": "Mida Liisa-Krõõt ei söö?",
+      "rus": "Что не ест Лийса-Крёот?",
+      "answer": "Liisa-Krõõt ei söö liha.",
+      "answerRus": "Лийса-Крёот не ест мясо."
+    },
+    {
+      "est": "Millal Margus Tartusse sõidab?",
+      "rus": "Когда Маргус поедет в Тарту?",
+      "answer": "Margus sõidab Tartusse koolivaheajal.",
+      "answerRus": "Маргус поедет в Тарту на каникулах."
+    },
+    {
+      "est": "Mida Tartus saab teha?",
+      "rus": "Что можно делать в Тарту?",
+      "answer": "Tartus saab külastada muuseume, parke, Emajõge, teatrit ja spaad.",
+      "answerRus": "В Тарту можно посетить музеи, парки, реку Эмайыги, театр и спа."
+    }
+  ];
+  const container = document.getElementById('accordionContainer');
+
+  questions.forEach((item, index) => {
+    const accordionContainer = document.createElement('div');
+    accordionContainer.classList.add('accordion-container');
+
+    const questionBtn = document.createElement('button');
+    questionBtn.classList.add('accordion');
+    questionBtn.textContent = `${index + 1}) ${item.est}`;
+
+    const panel = document.createElement('div');
+    panel.classList.add('panel');
+
+    const translationP = document.createElement('p');
+    translationP.classList.add('translation');
+    translationP.textContent = item.rus;
+
+
+    const answerP = document.createElement('p');
+    answerP.classList.add('answer');
+    answerP.textContent = item.answer;
+
+    const answerRus = document.createElement('p');
+    answerRus.classList.add('answerRus');
+    answerRus.textContent = item.answerRus;
+
+    panel.appendChild(translationP);
+    panel.appendChild(answerP);
+    panel.appendChild(answerRus);
+
+    accordionContainer.appendChild(questionBtn);
+    accordionContainer.appendChild(panel);
+
+    container.appendChild(accordionContainer);
+
+    // Toggle answer panel
+    questionBtn.addEventListener("click", function () {
+      this.classList.toggle("active");
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+</script>
+</body>
+</html>
